@@ -1,0 +1,17 @@
+{
+  "name": "thc-media-centre",
+  "version": "0.0.1",
+  "description": "A media centre for locally managed media",
+  "main": "start.js",
+  "repository": "https://github.com/TheHomeComp/thc-media-centre",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "electron": "^1.8.4",
+    "electron-rebuild": "^1.7.3"
+  },
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "electron-rebuild"
+  }
+}
