@@ -13,6 +13,7 @@
     "electron": "^1.8.4",
     "electron-rebuild": "^1.7.3",
     "html-webpack-plugin": "^3.2.0",
+    "rimraf": "^2.6.2",
     "ts-loader": "^4.2.0",
     "typescript": "^2.8.1",
     "webpack": "^4.5.0",
@@ -25,7 +26,7 @@
     "build-render": "webpack --config webpack.config.render.prod.js",
     "build-main": "webpack --config webpack.config.main.prod.js",
     "start": "concurrently --kill-others --names \"RENDER,MAIN,ELECTRON\" \"yarn run watch-render\" \"yarn run watch-main\" \"yarn run run-electron\"",
-    "build": "concurrently --names \"RENDER,MAIN\" \"yarn run build-render\" \"yarn run build-main\"",
+    "build": "rimraf dist/* && concurrently --names \"RENDER,MAIN\" \"yarn run build-render\" \"yarn run build-main\"",
     "postinstall": "electron-rebuild"
   },
   "dependencies": {
