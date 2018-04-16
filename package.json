@@ -7,6 +7,8 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
+    "@types/react": "^16.3.11",
+    "@types/react-dom": "^16.0.5",
     "concurrently": "^3.5.1",
     "electron": "^1.8.4",
     "electron-rebuild": "^1.7.3",
@@ -25,5 +27,9 @@
     "start": "concurrently --kill-others --names \"RENDER,MAIN,ELECTRON\" \"yarn run watch-render\" \"yarn run watch-main\" \"yarn run run-electron\"",
     "build": "concurrently --names \"RENDER,MAIN\" \"yarn run build-render\" \"yarn run build-main\"",
     "postinstall": "electron-rebuild"
+  },
+  "dependencies": {
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
   }
 }
