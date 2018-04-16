@@ -1,3 +1,3 @@
 import add from './add';
 
-console.log(add(5, 3));
+console.log(add(9, 3));
