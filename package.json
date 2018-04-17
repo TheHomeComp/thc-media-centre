@@ -2,7 +2,7 @@
   "name": "thc-media-centre",
   "version": "0.0.1",
   "description": "A media centre for locally managed media",
-  "main": "dist/main.js",
+  "main": "main.js",
   "repository": "https://github.com/TheHomeComp/thc-media-centre",
   "license": "MIT",
   "private": true,
@@ -28,7 +28,8 @@
     "build-main": "webpack --config webpack.config.main.prod.js",
     "watch": "concurrently --kill-others --names \"RENDER,MAIN\" \"yarn run watch-render\" \"yarn run watch-main\"",
     "start": "yarn run run-electron",
-    "build": "rimraf dist/* && concurrently --names \"RENDER,MAIN\" \"yarn run build-render\" \"yarn run build-main\" && electron-builder --dir",
+    "elec-build": "cp package.json dist/ && electron-builder --project dist",
+    "build": "rimraf dist/* && concurrently --names \"RENDER,MAIN\" \"yarn run build-render\" \"yarn run build-main\" && yarn run elec-build",
     "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
