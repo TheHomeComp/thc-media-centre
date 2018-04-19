@@ -21,15 +21,16 @@
     "webpack-cli": "^2.0.14"
   },
   "scripts": {
+    "clean": "rimraf dist && mkdir dist",
     "run-electron": "electron dist/main.js",
     "watch-render": "webpack --watch --config webpack.config.render.dev.js",
     "watch-main": "webpack --watch --config webpack.config.main.dev.js",
     "build-render": "webpack --config webpack.config.render.prod.js",
     "build-main": "webpack --config webpack.config.main.prod.js",
-    "watch": "concurrently --kill-others --names \"RENDER,MAIN\" \"yarn run watch-render\" \"yarn run watch-main\"",
+    "watch": "yarn run clean && concurrently --kill-others --names \"RENDER,MAIN\" \"yarn run watch-render\" \"yarn run watch-main\"",
     "start": "yarn run run-electron",
     "elec-build": "cp package.json dist/ && electron-builder --project dist",
-    "build": "rimraf dist/* && concurrently --names \"RENDER,MAIN\" \"yarn run build-render\" \"yarn run build-main\" && yarn run elec-build",
+    "build": "yarn run clean && concurrently --names \"RENDER,MAIN\" \"yarn run build-render\" \"yarn run build-main\" && yarn run elec-build",
     "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
